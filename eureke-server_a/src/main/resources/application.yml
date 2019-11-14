@@ -1,0 +1,8 @@
+server:
+   port: 18761
+eureka:
+   instance:
+      hostname: peer1
+   client:
+      serviceUrl:
+         defaultZone: http://123.59.17.115:18762/eureka/
