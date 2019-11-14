@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.emarbox.mapper.develop.DevelopersMapper">
+
+	<select id="getDevelopersList" parameterType="com.emarbox.domain.vo.qo.DeveloperQuery" resultType="com.emarbox.domain.po.Developers">
+		SELECT * FROM developers dev
+		WHERE
+		1=1
+		<if test="devId!='' and devId!=null">
+			and dev.id = #{devId}
+		</if>
+		<if test="accountNo!='' and accountNo!=null">
+			and dev.account_no = #{accountNo}
+		</if>
+		<if test="businessPeopleId!='' and businessPeopleId!=null">
+			and dev.business_people_id = #{businessPeopleId}
+		</if>
+		<if test="businessPeopleId!='' and businessPeopleId!=null">
+			and dev.audits_state = #{businessPeopleId.name()}
+		</if>
+		order by dev.id desc
+	</select>
+	
+	<select id="getDevelopersOfNormal" resultType="com.emarbox.domain.po.Developers">
+		select id,account_no,develop_name from developers where 1=1 and  ((deleted = 0 or deleted is null) and (locked = 0 or locked is null)) 
+	</select>
+</mapper>

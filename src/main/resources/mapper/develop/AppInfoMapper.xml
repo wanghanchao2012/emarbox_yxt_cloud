@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.emarbox.mapper.develop.AppInfoMapper">
+
+	<select id="getAppInfoList" parameterType="com.emarbox.domain.vo.qo.AppInfoQuery" resultType="com.emarbox.domain.po.AppInfo">
+		SELECT * FROM app_info app
+		WHERE
+		1=1
+		<if test="appId!='' and appId!=null">
+			and app.id = #{appId}
+		</if>
+		<if test="devId!='' and devId!=null">
+			and app.dev_id = #{devId}
+		</if>
+		<if test="businessPeopleId!='' and businessPeopleId!=null">
+			and app.business_people_id = #{businessPeopleId}
+		</if>
+		<if test="appType!='' and appType!=null">
+			and app.app_type = #{appType}
+		</if>
+		<if test="auditState!='' and auditState!=null">
+			and app.audit_state = #{appState}
+		</if>
+		<if test="systemType!='' and systemType!=null">
+			and app.system_type = #{systemType}
+		</if>
+		<if test="joinUpType!='' and joinUpType!=null">
+			and app.join_up_type = #{joinUpType}
+		</if>
+		order by app.id desc
+	</select>
+	
+	<select id="getAppInfoOfNormal" resultType="com.emarbox.domain.po.AppInfo">
+		select id,app_name from app_info where 1=1 and  ((deleted = 0 or deleted is null) and (locked = 0 or locked is null)) 
+	</select>
+</mapper>

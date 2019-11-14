@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.emarbox.mapper.auth.EmarboxUserMapper">
+	
+	<select id="getBusinessPeopleList" resultType="com.emarbox.domain.po.EmarboxUser">
+		SELECT
+			users.user_id,
+			users.display_name
+		FROM
+			emarbox_user users
+		INNER JOIN tb_user_roles user_role ON user_role.user_id = users.user_id
+		INNER JOIN tb_role role ON user_role.role_id = role.id
+		WHERE
+			role.role_type = 'intermediary'
+	</select>
+	
+	
+</mapper>

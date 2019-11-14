@@ -1,0 +1,15 @@
+ 
+spring:
+  datasource:
+    devpt: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.4.194:3406/develop_pf?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      username: develop_pf
+      password: develop_pt_2019@
+    auth: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.4.195:3406/emarbox3_prd?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+      username: emarbox3_prd
+      password: emarbox3_prd
+
+      

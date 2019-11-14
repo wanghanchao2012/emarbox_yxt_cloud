@@ -1,0 +1,14 @@
+ 
+spring:
+  datasource:
+    devpt: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://221.122.127.181:3306/develop_pf?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      username: develop_pf
+      password: develop_pt_2019@_test
+    auth: 
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://221.122.127.181:3306/emarbox3_prd?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+      username: dsp
+      password: DSPprdDSP
+

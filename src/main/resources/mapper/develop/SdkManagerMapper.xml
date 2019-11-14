@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.emarbox.mapper.develop.SdkManagerMapper">
+
+	<select id="getSdkManagerList" parameterType="com.emarbox.domain.vo.qo.SdkManagerQuery" resultType="com.emarbox.domain.po.SdkManager">
+		select sdk.* from sdk_manager sdk
+		inner join app_info app on sdk.app_id = app.id
+		inner join developers dev on dev.id = app.dev_id
+		where 1=1
+		<if test="appId!='' and appId!=null">
+			and app.id = #{appId}
+		</if>
+		<if test="devId!='' and devId!=null">
+			and dev.id = #{devId}
+		</if>
+		<if test="systemType!='' and systemType!=null">
+			and sdk.system_type = #{systemType}
+		</if>
+		order by sdk.id desc
+	</select>
+	
+</mapper>

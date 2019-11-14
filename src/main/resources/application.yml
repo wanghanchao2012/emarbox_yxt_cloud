@@ -1,0 +1,55 @@
+server:
+  port: 18764
+spring:
+  profiles:
+    active: dev
+  application:
+    name: develop-pt-client
+  datasource:
+    devpt:
+      minIdle: 2
+      maxActive: 5
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x' FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat
+    auth:
+      minIdle: 2
+      maxActive: 5
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x' FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat
+  http:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://123.59.17.115:18761/eureka/
+       
+       
+       
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+       
+       
+file:
+  package:
+    upload:
+      preview_domain: http://img.emarbox.com/dsp/dd_img/develop/
+      local_path: /data/dsp/creative/dd_img/develop/
